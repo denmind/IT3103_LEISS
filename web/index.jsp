@@ -1,37 +1,46 @@
-<%-- 
-    Document   : index
-    Created on : 11 19, 18, 5:49:34 PM
-    Author     : pc-user
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>LEISS | Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="padding: 10%;">
-        <div class="row" align="center"><h2 style="color:white ; font-weight: bold;">Salary Management System</h2></div>
-        <div class="row" align="center"><h4 style="color:white">Unwind Website</h3></div>
-        <br><br>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="form-group" id="login" >
-                    <form action="home.jsp" method="post" autocomplete="off">
-                        <center><input type="text" name="email" class="form-control" id="em" style="width: 350px" placeholder="Email Address"></center>
-                        <br>
-                        <center><input type="password" name="password" class="form-control" id="pw" style="width: 350px" placeholder="Password"></center>
-                        <br>
-                        <center><button type="submit" class="btn btn-info">Login</button></center>
-                    </form>
-                </div>         
+<!--
+	Singleton = Lab
+	Strategy = Item states (NORMAL,BORRWOED, DAMAGED)
+	Factory = Item creations
+-->
+<head>
+    <title>LEISS</title>
+    <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
+    <link rel='stylesheet' href='leiss.css'>
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-lg-6 indexleft'>
+            <div class='row indexleftcenter'>
+                <img src="images/label.png" style='height: 200px'>
+<!--                <h4>LEISS</h4><h8>Laboratory Equipment Inventory System</h8>-->
             </div>
-            <div class="col-md-4"></div>
-
-
         </div>
-    </body>
+        <div class='col-lg-6 indexright'>
+            <div class='row'>
+                <form role="form" action="login.jsp" method="POST" class="login-form" autocomplete="off">
+                    <div class="form-group">
+                        <label class="sr-only" for="form-username">ID No.</label>
+                        <input type="text" name="email" placeholder="ID No." class="form-username form-control" id="id">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="form-password">Password</label>
+                        <input type="password" name="password" placeholder="Password" class="form-password form-control" id="pw">
+                    </div>
+                    <center><button type="submit" class="btn" style='color: white; background-color: #18181b;'>Log In</button></center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
+
+<script src="bootstrap-3.3.7-dist/jquery-3.3.1.min.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+
+
+</script>

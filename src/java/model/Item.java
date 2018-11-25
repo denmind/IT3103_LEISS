@@ -10,17 +10,29 @@ package model;
  * @author pc-user
  */
 public class Item {
+
     private int item_serial_no;
     private String item_name;
     private String item_date_added;
-    
+    private Item_State item_state;
+
+   
     private Student item_stud; // Student  who borrowed the Equipment
+
+    public Item_State getItem_state() {
+        return item_state;
+    }
+
+    public void setItem_state(Item_State item_state) {
+        this.item_state = item_state;
+    }
 
     public Item(int item_serial_no, String item_name, String item_date_added) {
         this.item_serial_no = item_serial_no;
         this.item_name = item_name;
         this.item_date_added = item_date_added;
         this.item_stud = null;
+        this.item_state = new Item_Normal();
     }
 
     public int getItem_serial_no() {
@@ -54,8 +66,5 @@ public class Item {
     public void setItem_stud(Student item_stud) {
         this.item_stud = item_stud;
     }
-    
-    
-    
-    
+
 }
