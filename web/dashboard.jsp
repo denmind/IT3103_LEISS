@@ -1,10 +1,12 @@
 <html>
+    <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
     <%@page import="model.*"%>
     <%
         Laboratory Leiss = Laboratory.getInstance();
     %>
     <head>
         <title>Dashboard</title>
+        <meta charset="UTF-8">
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf'>
         <link rel='stylesheet' href='leiss.css'>

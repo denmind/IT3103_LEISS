@@ -12,11 +12,15 @@ package model;
 public class Log {
     private int log_id;
     private String log_name;
-    
-    public Log(int log_id, String log_name) {
+    private String log_description;
+
+    public Log(int log_id, String log_name, String log_description) {
         this.log_id = log_id;
         this.log_name = log_name;
+        this.log_description = log_description;
     }
+    
+   
 
     public int getLog_id() {
         return log_id;
@@ -33,6 +37,15 @@ public class Log {
     public void setLog_name(String log_name) {
         this.log_name = log_name;
     }
+
+    public String getLog_description() {
+        return log_description;
+    }
+
+    public void setLog_description(String log_description) {
+        this.log_description = log_description;
+    }
+
     
     
 }

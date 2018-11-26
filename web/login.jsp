@@ -1,5 +1,5 @@
 <html>
-
+    <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
     <%@page import="model.*"%>
 
     <%
@@ -11,11 +11,12 @@
         String password = request.getParameter("password");
 
         Laboratory Leiss = new Laboratory(lab_id, lab_name, lab_in_charge, username, password);
-        
+
         Leiss.getLab_uc().settleUC();
     %>
     <head>
         <title>Log</title>
+        <meta charset="UTF-8">
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf'>
         <link rel='stylesheet' href='leiss.css'>
@@ -32,7 +33,7 @@
                     <hr>
 
                     <div class='row'>
-                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician</span> : <span style='color: whitesmoke'><%= Leiss.getLab_uc().getUsername() %></span></div>
+                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician</span> : <span style='color: whitesmoke'><%= Leiss.getLab_uc().getUsername()%></span></div>
                     </div>
 
                     <hr>
@@ -80,13 +81,20 @@
                                 <div class="panel-body panelbodyequip">
                                     <table class='table'>
                                         <tr>
-                                            <th>Date</th>
-                                            <th>Serial No.</th>
+                                            <th>Log ID</th>
                                             <th>Name</th>
-                                            <th>Details</th>
-                                            <th>Lab Tech</th>
+                                            <th>Log Description</th>
                                         </tr>
                                         <!-- DATA HERE -->
+                                        <%
+                                            for (Log data_Log : Leiss.getLab_log()) {
+                                                out.println("<tr>");
+                                                out.println("<td>" + data_Log.getLog_id() + "</td>");
+                                                out.println("<td>" + data_Log.getLog_name() + "</td>");
+                                                out.println("<td>" + data_Log.getLog_description() + "</td>");
+                                                out.println("</tr>");
+                                            }
+                                        %>
                                     </table>
                                 </div>
                             </div>

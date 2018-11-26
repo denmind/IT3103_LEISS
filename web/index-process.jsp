@@ -10,15 +10,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Processing...</title>
+        <meta charset="UTF-8">
     </head
     <%
+        String check_username = "student";
+        String check_password = "student";
+
         String username = request.getParameter("email");
         String password = request.getParameter("password");
         int value = -1;
 
-        if (username == "student" && password == "student") {
+        if (username == check_username && password == check_password) {
+            value = 1;
+        }
+
+        if (value == 1) {
             response.sendRedirect("login.jsp");
-        } else {
+        } else if (value != 1) {
             response.sendRedirect("index.jsp");
         }
     %>
