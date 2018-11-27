@@ -23,7 +23,7 @@
                     <hr>
 
                     <div class='row'>
-                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician</span> : <span style='color: whitesmoke'>Tom Holland</span></div>
+                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician : <%= Leiss.getLab_uc().showName()%></span></div>
                     </div>
 
                     <hr>
@@ -69,8 +69,21 @@
                                             <th>Serial No.</th>
                                             <th>Name</th>
                                             <th>Date Added</th>
+                                            <th>Options</th>
                                         </tr>
                                         <!-- DATA -->
+                                        <%
+                                            for (Item data_item : Leiss.getLab_list().getLab_items()) {
+                                                if (data_item.getItem_state().showState().equals("Normal")) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>" + data_item.getItem_serial_no() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_name() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_date_added() + "</td>");
+                                                    out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Borrow Item'><span class='glyphicon glyphicon glyphicon-bold' style='color: whitesmoke;'></span></button><button type='button' class='btn btn-danger btn-sm transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon-exclamation-sign' style='color: whitesmoke;'></span></button></td>");
+                                                    out.println("</tr>");
+                                                }
+                                            }
+                                        %>
                                     </table>
                                 </div>
                             </div>

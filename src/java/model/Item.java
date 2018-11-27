@@ -11,13 +11,14 @@ package model;
  */
 public class Item {
 
-    private int item_serial_no;
+    private String item_serial_no;
     private String item_name;
     private String item_date_added;
     private Item_State item_state;
 
    
-    private Student item_stud; // Student  who borrowed the Equipment
+    private Student item_stud; // Student  who borrowed/damaged the Equipment
+    private String item_date_special; //Date when it was borrowed/damaged
 
     public Item_State getItem_state() {
         return item_state;
@@ -27,19 +28,28 @@ public class Item {
         this.item_state = item_state;
     }
 
-    public Item(int item_serial_no, String item_name, String item_date_added) {
+    public Item(String item_serial_no, String item_name, String item_date_added) {
         this.item_serial_no = item_serial_no;
         this.item_name = item_name;
         this.item_date_added = item_date_added;
         this.item_stud = null;
+        this.item_date_special = "";
         this.item_state = new Item_Normal();
     }
 
-    public int getItem_serial_no() {
+    public String getItem_serial_no() {
         return item_serial_no;
     }
 
-    public void setItem_serial_no(int item_serial_no) {
+    public String getItem_date_special() {
+        return item_date_special;
+    }
+
+    public void setItem_date_special(String item_date_special) {
+        this.item_date_special = item_date_special;
+    }
+
+    public void setItem_serial_no(String item_serial_no) {
         this.item_serial_no = item_serial_no;
     }
 

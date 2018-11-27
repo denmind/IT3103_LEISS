@@ -23,7 +23,7 @@
                     <hr>
 
                     <div class='row'>
-                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician</span> : <span style='color: whitesmoke'><%= Leiss.getLab_uc().getUsername()%></span></div>
+                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician : <%= Leiss.getLab_uc().showName()%></span></div>
                     </div>
 
                     <hr>
@@ -56,6 +56,16 @@
                                             <th>Name</th>
                                         </tr>
                                         <!-- DATA -->
+                                        <%
+                                            for (Item data_item : Leiss.getLab_list().getLab_items()) {
+                                                if (data_item.getItem_state().showState().equals("Normal")) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>" + data_item.getItem_serial_no() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_name() + "</td>");
+                                                    out.println("</tr>");
+                                                }
+                                            }
+                                        %>
                                     </table>
                                 </div>
                             </div>
@@ -73,6 +83,17 @@
                                             <th>Date Borrowed</th>
                                         </tr>
                                         <!-- DATA -->
+                                        <%
+                                            for (Item data_item : Leiss.getLab_list().getLab_items()) {
+                                                if (data_item.getItem_state().showState().equals("Borrowed")) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>" + data_item.getItem_serial_no() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_name() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_date_special() + "</td>");
+                                                    out.println("</tr>");
+                                                }
+                                            }
+                                        %>
                                     </table>
                                 </div>
                             </div>
@@ -90,6 +111,17 @@
                                             <th>Date Damaged</th>
                                         </tr>
                                         <!-- DATA -->
+                                        <%
+                                            for (Item data_item : Leiss.getLab_list().getLab_items()) {
+                                                if (data_item.getItem_state().showState().equals("Damaged")) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>" + data_item.getItem_serial_no() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_name() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_date_special() + "</td>");
+                                                    out.println("</tr>");
+                                                }
+                                            }
+                                        %>
                                     </table>
                                 </div>
                             </div>

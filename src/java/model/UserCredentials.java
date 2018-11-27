@@ -41,11 +41,15 @@ public class UserCredentials {
     }
 
     public void settleUC() {
-        if (username == null) {
+        if (username == null || username == "") {
             username = "student";
         }
-        if (password == null) {
+        if (password == null || password == "") {
             password = "student";
         }
+    }
+
+    public String showName() {
+        return (username == null || "".equals(username)) ? "student" : username;
     }
 }

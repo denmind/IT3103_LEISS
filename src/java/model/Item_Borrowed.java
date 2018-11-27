@@ -9,11 +9,15 @@ package model;
  *
  * @author User
  */
-public class Item_Borrowed implements Item_State{
+public class Item_Borrowed implements Item_State {
 
     @Override
     public void changeState(Item I) {
         I.setItem_state(new Item_Borrowed());
     }
-    
+
+    @Override
+    public String showState() {
+        return "Borrowed";
+    }
 }

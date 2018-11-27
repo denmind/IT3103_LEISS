@@ -16,4 +16,8 @@ public class Item_Damaged implements Item_State{
         I.setItem_state(new Item_Damaged());
     }
     
+    @Override
+    public String showState() {
+        return "Damaged";
+    }
 }

@@ -15,5 +15,11 @@ public class Item_Normal implements Item_State{
     public void changeState(Item I) {
         I.setItem_state(new Item_Normal());
     }
+
+    @Override
+    public String showState() {
+        return "Normal";
+    }
+    
     
 }

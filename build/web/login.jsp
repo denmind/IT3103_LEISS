@@ -1,7 +1,6 @@
 <html>
     <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
     <%@page import="model.*"%>
-
     <%
         //LEISS Default Values
         int lab_id = 1;
@@ -33,7 +32,7 @@
                     <hr>
 
                     <div class='row'>
-                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician</span> : <span style='color: whitesmoke'><%= Leiss.getLab_uc().getUsername()%></span></div>
+                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician : <%= Leiss.getLab_uc().showName()%></span></div>
                     </div>
 
                     <hr>

@@ -13,11 +13,9 @@ import java.util.ArrayList;
  */
 public class List {
 
-    private int list_id;
-
     private final ArrayList<Item> lab_items;
 
-    public List(int list_id, String list_type) {
+    public List() {
         this.lab_items = new ArrayList<>();
     }
 

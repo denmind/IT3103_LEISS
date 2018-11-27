@@ -23,7 +23,7 @@
                     <hr>
 
                     <div class='row'>
-                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician</span> : <span style='color: whitesmoke'>Tom Holland</span></div>
+                        <div class='col-lg-12' style='text-align: center;'><span style='color: #898989'>Lab Technician : <%= Leiss.getLab_uc().showName()%></span></div>
                     </div>
 
                     <hr>
@@ -123,53 +123,31 @@
                                             <th>Serial No.</th>
                                             <th>Name</th>
                                             <th>Date Added</th>
-                                            <th>Borrower's Name</th>
-                                            <th>Date Borrowed</th>
+                                            <th>Name of Student</th>
+                                            <th>Date Damaged</th>
                                             <th>Options</th>
                                         </tr>
                                         <!-- DATA -->
-                                        <tr>
-                                            <td>2983019</td>
-                                            <td>Pyrex test tube - 20ml</td>
-                                            <td>Mar 16 2017</td>
-                                            <td>Brutasha Romanov</td>
-                                            <td>Nov 16 2018</td>
-                                            <td><button type="button" class="btn btn-success btn-sm transbtn" title='Returned'><span class="glyphicon glyphicon-ok-sign" style='color: whitesmoke;'></span></button><button type="button" class="btn btn-danger btn-sm transbtn" title='Mark as Damaged'><span class="glyphicon glyphicon-exclamation-sign" style='color: whitesmoke;'></span></button></td>
-                                        </tr>
+                                        <%
+                                            for (Item data_item : Leiss.getLab_list().getLab_items()) {
+                                                if (data_item.getItem_state().showState().equals("Borrowed")) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>" + data_item.getItem_serial_no() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_name() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_date_added() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
+                                                    out.println("<td>" + data_item.getItem_date_special() + "</td>");
+                                                    out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Return to Normal'><span class='glyphicon glyphicon glyphicon-ok-sign' style='color: whitesmoke;'></span></button><button type='button' class='btn btn-success btn-sm transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-exclamation-sign' style='color: whitesmoke;'></span></button></td>");
+                                                    out.println("</tr>");
+                                                }
+                                            }
+                                        %>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-                <div class='row'>
-                    <div class='col-lg-12 equip'>
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Borrowed Equipment</div>
-                            <div class="panel-body panelbodyequip">
-                                <table class='table'>
-                                    <tr>
-                                        <th>Serial No.</th>
-                                        <th>Name</th>
-                                        <th>Date Added</th>
-                                        <th>Borrower's Name</th>
-                                        <th>Date Borrowed</th>
-                                        <th>Options</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2983019</td>
-                                        <td>Pyrex test tube - 20ml</td>
-                                        <td>Mar 16 2017</td>
-                                        <td>Brutasha Romanov</td>
-                                        <td>Nov 16 2018</td>
-                                        <td><button type="button" class="btn btn-success btn-sm transbtn" title='Returned'><span class="glyphicon glyphicon-ok-sign" style='color: whitesmoke;'></span></button><button type="button" class="btn btn-danger btn-sm transbtn" title='Mark as Damaged'><span class="glyphicon glyphicon-exclamation-sign" style='color: whitesmoke;'></span></button></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
