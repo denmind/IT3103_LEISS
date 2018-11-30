@@ -108,14 +108,16 @@ public class Laboratory {
     public void populate_Log() {
         int LAB_DATA_MAX = 5;
 
-        int[] log_ids = new int[LAB_DATA_MAX];
+        String[] log_dates = new String[LAB_DATA_MAX];
         String[] log_names = new String[LAB_DATA_MAX];
         String[] log_descriptions = new String[LAB_DATA_MAX];
 
-        for (int X = 0; X < LAB_DATA_MAX; X++) {
-            log_ids[X] = X + 1;
-        }
-
+        log_dates[0] = "";
+        log_dates[1] = "";
+        log_dates[2] = "";
+        log_dates[3] = "";
+        log_dates[4] = "";
+        
         log_names[0] = "John McKain";
         log_names[1] = "John McKain";
         log_names[2] = "John McKain";
@@ -129,7 +131,7 @@ public class Laboratory {
         log_descriptions[4] = "Added Item.";
 
         for (int X = 0; X < LAB_DATA_MAX; X++) {
-            lab_log.add(new Log(log_ids[X], log_names[X], log_descriptions[X]));
+            lab_log.add(new Log(log_dates[X], log_names[X], log_descriptions[X]));
         }
 
     }

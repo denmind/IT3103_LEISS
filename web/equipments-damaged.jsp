@@ -41,6 +41,36 @@
                         </div>
                     </div>
 
+
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                    <div class="row">
+                        <div class="col-lg-12" style="padding: 10px;">
+                            <table class='table'>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-ban-circle" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Damaged</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-ok-circle" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Returned</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-record" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Fixed</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-bold" style='color: whitesmoke;'></span></td>
+                                    <td>Borrow Equipment</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
                 </div>
 
                 <div class='col-lg-10 dash'>
@@ -83,7 +113,7 @@
                                                     out.println("<td>" + data_item.getItem_date_added() + "</td>");
                                                     out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_special() + "</td>");
-                                                    out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Return to Normal'><span class='glyphicon glyphicon glyphicon-ok-sign' style='color: whitesmoke;'></span></button></td>");
+                                                    out.println("<td><form action='process-damaged.jsp'><input type='hidden' name='serial_damaged' value='"+ data_item.getItem_serial_no() +"'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Normal'><span class='glyphicon glyphicon glyphicon-record' style='color: whitesmoke;'></span></button></form> </td>");
                                                     out.println("</tr>");
                                                 }
                                             }

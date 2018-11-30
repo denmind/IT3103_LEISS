@@ -40,6 +40,35 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                    <div class="row">
+                        <div class="col-lg-12" style="padding: 10px;">
+                            <table class='table'>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-ban-circle" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Damaged</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-ok-circle" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Returned</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-record" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Normal</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-bold" style='color: whitesmoke;'></span></td>
+                                    <td>Borrow Equipment</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
                 </div>
 
@@ -58,13 +87,13 @@
                             <form class="navbar-form">
 
                                 <!-- MODAL TRIGGER BUTTON -->
-                                <button type="button" class="btn btn-default btn-lg transbtn" title='Borrow Equipment' data-toggle="modal" data-target="#borrowEquipment"><span class="glyphicon glyphicon-bold" style='color: whitesmoke;'></span></button>
+                                <!--<button type="button" class="btn btn-default btn-lg transbtn" title='Borrow Equipment' data-toggle="modal" data-target="#borrowEquipment"><span class="glyphicon glyphicon-bold" style='color: whitesmoke;'></span></button>-->
 
                                 <!-- Modal -->
-                                <div id="borrowEquipment" class="modal fade" role="dialog">
+<!--                                <div id="borrowEquipment" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
 
-                                        <!-- Modal content-->
+                                         Modal content
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -106,7 +135,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div>-->
 
 
                             </form>
@@ -137,7 +166,7 @@
                                                     out.println("<td>" + data_item.getItem_date_added() + "</td>");
                                                     out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_special() + "</td>");
-                                                    out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Return to Normal'><span class='glyphicon glyphicon glyphicon-ok-sign' style='color: whitesmoke;'></span></button><button type='button' class='btn btn-success btn-sm transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-exclamation-sign' style='color: whitesmoke;'></span></button></td>");
+                                                    out.println("<td><form action='#'><input type='hidden' name='serial_normal' value='"+ data_item.getItem_serial_no() +"'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Returned'><span class='glyphicon glyphicon glyphicon-ok-circle' style='color: whitesmoke;'></span></button></form> <form action='#'><input type='hidden' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'><input type='hidden' name='student_damaged' value='" + data_item.getItem_stud().getStud_name() + "'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: whitesmoke;'></span></button></form></td>");
                                                     out.println("</tr>");
                                                 }
                                             }

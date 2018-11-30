@@ -62,14 +62,13 @@
                                     <input type="text" class="form-control"  id='searchbar' placeholder="Search">
                                 </div>
                                 <button type="submit" class="btn btn-default btn-lg transbtn" title='Search'><span class="glyphicon glyphicon-search" aria-hidden="true" style='color: whitesmoke;'></span></button>
-                                <a href="index.jsp" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-log-out"></span>
-                                </a>
                             </form>
 
                         </div>
                         <div class='col-lg-1' style="background-color: #131419; height: 60px; text-align: left; padding-left: 0px;">
-
+                            <a href="index.jsp" class="btn btn-default btn-lg transbtn" style='padding-top: 18px'>
+                                <span class="glyphicon glyphicon-log-out" style='color: whitesmoke;' title='Logout'></span>
+                            </a>
                         </div>
                     </div>
 
@@ -80,7 +79,7 @@
                                 <div class="panel-body panelbodyequip">
                                     <table class='table'>
                                         <tr>
-                                            <th>Log ID</th>
+                                            <th>Date</th>
                                             <th>Name</th>
                                             <th>Log Description</th>
                                         </tr>
@@ -88,7 +87,7 @@
                                         <%
                                             for (Log data_Log : Leiss.getLab_log()) {
                                                 out.println("<tr>");
-                                                out.println("<td>" + data_Log.getLog_id() + "</td>");
+                                                out.println("<td>" + data_Log.getLog_date()+ "</td>");
                                                 out.println("<td>" + data_Log.getLog_name() + "</td>");
                                                 out.println("<td>" + data_Log.getLog_description() + "</td>");
                                                 out.println("</tr>");

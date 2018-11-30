@@ -42,14 +42,14 @@ public class UserCredentials {
 
     public void settleUC() {
         if (username == null || username == "") {
-            username = "student";
+            username = "Student";
         }
         if (password == null || password == "") {
-            password = "student";
+            password = "Student";
         }
     }
 
     public String showName() {
-        return (username == null || "".equals(username)) ? "student" : username;
+        return (username == null || "".equals(username)) ? "Student" : username;
     }
 }

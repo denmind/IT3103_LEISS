@@ -41,6 +41,36 @@
                         </div>
                     </div>
 
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                    <div class="row">
+                        <div class="col-lg-12" style="padding: 10px;">
+                            <table class='table'>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-ban-circle" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Damaged</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-ok-circle" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Returned</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-record" style='color: whitesmoke;'></span></td>
+                                    <td>Mark as Normal</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="glyphicon glyphicon-bold" style='color: whitesmoke;'></span></td>
+                                    <td>Borrow Equipment</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+
                 </div>
 
                 <div class='col-lg-10 dash'>
@@ -79,11 +109,60 @@
                                                     out.println("<td>" + data_item.getItem_serial_no() + "</td>");
                                                     out.println("<td>" + data_item.getItem_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_added() + "</td>");
-                                                    out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Borrow Item'><span class='glyphicon glyphicon glyphicon-bold' style='color: whitesmoke;'></span></button><button type='button' class='btn btn-danger btn-sm transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon-exclamation-sign' style='color: whitesmoke;'></span></button></td>");
+                                                    out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Borrow Item' data-toggle='modal' data-target='#borrowEquipment'><span class='glyphicon glyphicon glyphicon-bold' style='color: whitesmoke;'></span></button><button type='button' class='btn btn-danger btn-sm transbtn' title='Mark as Damaged' data-toggle='modal' data-target='#damageEquipment'><span class='glyphicon glyphicon-ban-circle' style='color: whitesmoke;'></span></button></td>"
+                                                            + "<form class='navbar-form'>" //FORM HERE
+                                                            + "<div id='borrowEquipment' class='modal fade' role='dialog'>"
+                                                            + "<div class='modal-dialog'> "
+                                                            + "<div class='modal-content'>"
+                                                            + "<div class='modal-header'>"
+                                                            + "<button type='button' class='close' data-dismiss='modal'>&times;</button>"
+                                                            + "<h4 class='modal-title' style='color: black;'>" + data_item.getItem_serial_no() + "\t" + data_item.getItem_name() + "</h4>"
+                                                            + "</div>"
+                                                            + "<div class='modal-body'>"
+                                                            + "<form action='#'>"//FORM HERE
+                                                            + "<input type='hidden' class='form-control' name='serial_borrow' value=' " + data_item.getItem_serial_no() + " '>" /**
+                                                             * * INPUT TYPE
+                                                             * HIDDEN **
+                                                             */
+                                                            + "<div class='form-group'>"
+                                                            + "<label for='bname' style='color: black;'>Borrower's Name:</label><br>"
+                                                            + "<input type='text' class='form-control' id='bname'>"
+                                                            + "</div>"
+                                                            + "<button type='submit' class='btn btn-default pull-right'>Submit</button>"
+                                                            + "<br><br>"
+                                                            + "</form>"
+                                                            + "</div></div></div></div></form>"
+                                                            +"<form class='navbar-form'>" 
+                                                            + "<div id='damageEquipment' class='modal fade' role='dialog'>"
+                                                            + "<div class='modal-dialog'> "
+                                                            + "<div class='modal-content'>"
+                                                            + "<div class='modal-header'>"
+                                                            + "<button type='button' class='close' data-dismiss='modal'>&times;</button>"
+                                                            + "<h4 class='modal-title' style='color: black;'>" + data_item.getItem_serial_no() + "\t" + data_item.getItem_name() + "</h4>"
+                                                            + "</div>"
+                                                            + "<div class='modal-body'>"
+                                                            + "<form action='#'>"//FORM HERE
+                                                            + "<input type='hidden' class='form-control' name='serial_damaged' value=' " + data_item.getItem_serial_no() + " '>" /**
+                                                             * * INPUT TYPE
+                                                             * HIDDEN **
+                                                             */
+                                                            + "<div class='form-group'>"
+                                                            + "<label for='dname' style='color: black;'>Person's Name:</label><br>"
+                                                            + "<input type='text' class='form-control' id='dname'>"
+                                                            + "</div>"
+                                                            + "<button type='submit' class='btn btn-default pull-right'>Submit</button>"
+                                                            + "<br><br>"
+                                                            + "</form>"
+                                                            + "</div></div></div></div></form>"
+                                                    );
                                                     out.println("</tr>");
                                                 }
                                             }
                                         %>
+
+
+
+
                                     </table>
                                 </div>
                             </div>
