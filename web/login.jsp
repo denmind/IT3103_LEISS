@@ -2,16 +2,7 @@
     <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
     <%@page import="model.*"%>
     <%
-        //LEISS Default Values
-        int lab_id = 1;
-        String lab_name = "LEISS";
-        String lab_in_charge = request.getParameter("email");
-        String username = lab_in_charge;
-        String password = request.getParameter("password");
-
-        Laboratory Leiss = new Laboratory(lab_id, lab_name, lab_in_charge, username, password);
-
-        Leiss.getLab_uc().settleUC();
+        Laboratory Leiss = Laboratory.getInstance();
     %>
     <head>
         <title>Log</title>
@@ -87,7 +78,7 @@
                                         <%
                                             for (Log data_Log : Leiss.getLab_log()) {
                                                 out.println("<tr>");
-                                                out.println("<td>" + data_Log.getLog_date()+ "</td>");
+                                                out.println("<td>" + data_Log.getLog_date() + "</td>");
                                                 out.println("<td>" + data_Log.getLog_name() + "</td>");
                                                 out.println("<td>" + data_Log.getLog_description() + "</td>");
                                                 out.println("</tr>");

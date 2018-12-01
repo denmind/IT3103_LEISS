@@ -97,6 +97,14 @@ public class Laboratory {
         this.lab_list = lab_list;
     }
 
+    public static synchronized Laboratory getInstance(int lab_id, String lab_name, String lab_in_charge, String username, String password) {
+        if (instance == null) {
+            instance = new Laboratory(lab_id, lab_name, lab_in_charge, username, password);
+
+        }
+        return instance;
+    }
+
     public static synchronized Laboratory getInstance() {
         if (instance == null) {
             instance = new Laboratory();
@@ -112,12 +120,12 @@ public class Laboratory {
         String[] log_names = new String[LAB_DATA_MAX];
         String[] log_descriptions = new String[LAB_DATA_MAX];
 
-        log_dates[0] = "";
-        log_dates[1] = "";
-        log_dates[2] = "";
-        log_dates[3] = "";
-        log_dates[4] = "";
-        
+        log_dates[0] = "June 22, 2018";
+        log_dates[1] = "November 19, 2018";
+        log_dates[2] = "February 15, 2018";
+        log_dates[3] = "March 13, 2018";
+        log_dates[4] = "April 13, 2018";
+
         log_names[0] = "John McKain";
         log_names[1] = "John McKain";
         log_names[2] = "John McKain";
@@ -205,7 +213,7 @@ public class Laboratory {
         item_stud[4] = new Student("933686", "Cassia Parks");
         item_stud[5] = new Student("278881", "Perry Cottrell");
         item_stud[6] = new Student("434131", "Krista Zavala");
-        
+
         item_date_damaged[0] = "March 9, 2018";
         item_date_damaged[1] = "June 14, 2018";
         item_date_damaged[2] = "June 22, 2018";
@@ -213,9 +221,8 @@ public class Laboratory {
         item_date_damaged[4] = "February 15, 2018";
         item_date_damaged[5] = "March 13, 2018";
         item_date_damaged[6] = "April 13, 2018";
-        
 
-        for ( ; X < LAB_DATA_MAX; X++) {
+        for (; X < LAB_DATA_MAX; X++) {
             Item data_Item = new Item(item_serial[X], item_name[X], item_date[X]);
 
             if (X > 7 && X <= 11) {
@@ -223,7 +230,7 @@ public class Laboratory {
                 data_Item.setItem_stud(item_stud[Y]);
                 data_Item.setItem_date_special(item_date_damaged[Y]);
                 Y++;
-                
+
             }
 
             if (X > 11 && X < LAB_DATA_MAX) {

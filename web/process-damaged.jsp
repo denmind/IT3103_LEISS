@@ -4,6 +4,7 @@
     Author     : User
 --%>
 
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.*"%>
 <!DOCTYPE html>
@@ -17,11 +18,16 @@
         Laboratory Leiss = Laboratory.getInstance();
 
         String SERIAL_FIND_DMG = request.getParameter("serial_damaged");
-        
+
         for (Item item : Leiss.getLab_list().getLab_items()) {
             if (item.getItem_serial_no().equals(SERIAL_FIND_DMG)) {
+                String log_date = new Date().toString();
+                String log_name = "Damaged to Normal";
+                String log_description = "Item " + item.getItem_serial_no() + " changed state.";
+
                 item.setItem_state(new Item_Normal());
-                
+
+                Leiss.getLab_log().add(new Log(log_date, log_name, log_description));
             }
         }
 

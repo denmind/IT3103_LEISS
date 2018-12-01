@@ -1,3 +1,4 @@
+
 <html>
     <!--
             Singleton = Lab
@@ -5,6 +6,19 @@
             Factory = Item creations
     -->
     <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+    <%@page import="model.*"%>
+    <%
+        //LEISS Default Values
+        int lab_id = 1;
+        String lab_name = "LEISS";
+        String lab_in_charge = request.getParameter("email");
+        String username = lab_in_charge;
+        String password = request.getParameter("password");
+
+        Laboratory Leiss = new Laboratory(lab_id, lab_name, lab_in_charge, username, password);
+
+        Leiss.getLab_uc().settleUC();
+    %>
     <head>
         <title>LEISS</title>
         <meta charset="UTF-8">
@@ -31,6 +45,7 @@
                                 <label class="sr-only" for="form-password">Password</label>
                                 <input type="password" name="password" placeholder="Password" class="form-password form-control" id="pw">
                             </div>
+                            <input type="hidden" name="instance" value="start">
                             <center><button type="submit" class="btn" style='color: white; background-color: #18181b;'>Log In</button></center>
                         </form>
                     </div>
