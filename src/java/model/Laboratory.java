@@ -206,13 +206,13 @@ public class Laboratory {
         item_date[13] = "November 22, 2017";
         item_date[14] = "December 1, 2017";
 
-        item_stud[0] = new Student("676208", "Mohammod Nava");
-        item_stud[1] = new Student("129374", "Roscoe Knight");
-        item_stud[2] = new Student("448521", "Amelia-Mae Zamora");
-        item_stud[3] = new Student("317299", "Ines Jordan");
-        item_stud[4] = new Student("933686", "Cassia Parks");
-        item_stud[5] = new Student("278881", "Perry Cottrell");
-        item_stud[6] = new Student("434131", "Krista Zavala");
+        item_stud[0] = new Student("Mohammod Nava");
+        item_stud[1] = new Student("Roscoe Knight");
+        item_stud[2] = new Student("Amelia-Mae Zamora");
+        item_stud[3] = new Student("Ines Jordan");
+        item_stud[4] = new Student("Cassia Parks");
+        item_stud[5] = new Student("Perry Cottrell");
+        item_stud[6] = new Student("Krista Zavala");
 
         item_date_damaged[0] = "March 9, 2018";
         item_date_damaged[1] = "June 14, 2018";

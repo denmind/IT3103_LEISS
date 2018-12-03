@@ -8,6 +8,7 @@
         <title>Borrowed Equipments</title>
         <meta charset="UTF-8">
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
+        <link rel="stylesheet" href="DataTables/datatables.css" >
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf'>
         <link rel='stylesheet' href='leiss.css'>
     </head>
@@ -147,13 +148,13 @@
                             <div class="panel panel-info">
                                 <div class="panel-heading">Borrowed Equipment</div>
                                 <div class="panel-body panelbodyequip">
-                                    <table class='table'>
+                                    <table class='table' id='displayTable'>
                                         <tr>
                                             <th>Serial No.</th>
                                             <th>Name</th>
                                             <th>Date Added</th>
                                             <th>Name of Student</th>
-                                            <th>Date Damaged</th>
+                                            <th>Date Borrowed</th>
                                             <th>Options</th>
                                         </tr>
                                         <!-- DATA -->
@@ -166,7 +167,7 @@
                                                     out.println("<td>" + data_item.getItem_date_added() + "</td>");
                                                     out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_special() + "</td>");
-                                                    out.println("<td><form action='process-borrowed.jsp'><input type='hidden' name='process_type' value='normal'><input type='hidden' name='serial_normal' value='"+ data_item.getItem_serial_no() +"'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Returned'><span class='glyphicon glyphicon glyphicon-ok-circle' style='color: whitesmoke;'></span></button></form> <form action='process-borrowed.jsp'><input type='hidden' name='process_type' value='damaged'><input type='hidden' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'><input type='hidden' name='student_damaged' value='" + data_item.getItem_stud().getStud_name() + "'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: whitesmoke;'></span></button></form></td>");
+                                                    out.println("<td><form action='process-borrowed.jsp' method='POST'><input type='hidden' name='process_type' value='normal'><input type='hidden' name='serial_normal' value='"+ data_item.getItem_serial_no() +"'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Returned'><span class='glyphicon glyphicon glyphicon-ok-circle' style='color: whitesmoke;'></span></button></form> <form action='process-borrowed.jsp' method='POST'><input type='hidden' name='process_type' value='damaged'><input type='hidden' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'><input type='hidden' name='student_damaged' value='" + data_item.getItem_stud().getStud_name() + "'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: whitesmoke;'></span></button></form></td>");
                                                     out.println("</tr>");
                                                 }
                                             }
@@ -188,5 +189,11 @@
 
 <script src="bootstrap-3.3.7-dist/jquery-3.3.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<!--<script src="DataTables/datatables.js"></script>-->
+
 <script>
+    $(document).ready(function () {
+        $('#displayTable').DataTable();
+    });
 </script>

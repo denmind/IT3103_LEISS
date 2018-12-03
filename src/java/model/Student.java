@@ -10,20 +10,10 @@ package model;
  * @author pc-user
  */
 public class Student {
-    private String stud_id;
     private String stud_name;
 
-    public Student(String stud_id, String stud_name) {
-        this.stud_id = stud_id;
+    public Student( String stud_name) {
         this.stud_name = stud_name;
-    }
-
-    public String getStud_id() {
-        return stud_id;
-    }
-
-    public void setStud_id(String stud_id) {
-        this.stud_id = stud_id;
     }
 
     public String getStud_name() {

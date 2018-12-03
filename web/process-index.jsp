@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,21 +13,15 @@
         <meta charset="UTF-8">
     </head
     <%
+
         String check_username = "student";
         String check_password = "student";
 
         String username = request.getParameter("email");
         String password = request.getParameter("password");
-        int value = -1;
 
-        if (username == check_username && password == check_password) {
-            value = 1;
-        }
+        String urlDirect = (username.equals(check_username) && password.equals(check_password)) ? "login.jsp" : "index.jsp";
 
-        if (value == 1) {
-            response.sendRedirect("login.jsp");
-        } else if (value != 1) {
-            response.sendRedirect("index.jsp");
-        }
+        response.sendRedirect(urlDirect);
     %>
 </html>

@@ -8,6 +8,7 @@
         <title>All Equipments</title>
         <meta charset="UTF-8">
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
+        <link rel="stylesheet" href="DataTables/datatables.css" >
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf'>
         <link rel='stylesheet' href='leiss.css'>
     </head>
@@ -112,7 +113,7 @@
                             <div class="panel panel-danger">
                                 <div class="panel-heading">All Equipment</div>
                                 <div class="panel-body panelbodyequip">
-                                    <table class='table'>
+                                    <table class='table' id='displayTable'>
                                         <tr>
                                             <th>Serial No.</th>
                                             <th>Name</th>
@@ -145,5 +146,11 @@
 
 <script src="bootstrap-3.3.7-dist/jquery-3.3.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+<!--<script src="DataTables/datatables.js"></script>-->
+
 <script>
+    $(document).ready(function () {
+        $('#displayTable').DataTable();
+    });
 </script>

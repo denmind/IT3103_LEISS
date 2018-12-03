@@ -6,9 +6,13 @@
             <file>file:/C:/Users/pc-user/Documents/NetBeansProjects/IT3103_LEISS/web/equipments-borrowed.jsp</file>
         </group>
         <group>
-            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/process-damaged.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/dashboard.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/equipments-all.jsp</file>
             <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/equipments-borrowed.jsp</file>
-            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/process-borrowed.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/equipments-damaged.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/equipments-normal.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/process-index.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

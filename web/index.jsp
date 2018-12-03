@@ -36,7 +36,7 @@
                 </div>
                 <div class='col-lg-6 indexright'>
                     <div class='row'>
-                        <form role="form" action="login.jsp" method="POST" class="login-form" autocomplete="off">
+                        <form role="form" action="process-index.jsp" method="POST" class="login-form" autocomplete="off">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">ID No.</label>
                                 <input type="text" name="email" placeholder="ID No." class="form-username form-control" id="id">
