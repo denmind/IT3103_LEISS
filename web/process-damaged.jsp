@@ -23,7 +23,7 @@
             if (item.getItem_serial_no().equals(SERIAL_FIND_DMG)) {
                 String log_date = new Date().toString();
                 String log_name = "Damaged to Normal";
-                String log_description = "Item " + item.getItem_serial_no() + " changed state.";
+                String log_description = "[" + item.getItem_serial_no()+ "] Item changed state.";
 
                 item.setItem_state(new Item_Normal());
 

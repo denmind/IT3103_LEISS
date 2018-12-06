@@ -56,7 +56,7 @@
                             </form>
                         </div>
                         <div class='col-lg-1' style="background-color: #131419; height: 60px; text-align: left; padding-left: 0px;">
-                            <form class="navbar-form">
+                            <form class="navbar-form" action="process-add.jsp" id="additem" method="POST" autocomplete="off">
 
                                 <!-- MODAL TRIGGER BUTTON -->
                                 <button type="button" class="btn btn-default btn-lg transbtn" title='Add New Equipment' data-toggle="modal" data-target="#addEquipment"><span class="glyphicon glyphicon-plus" style='color: whitesmoke;'></span></button>
@@ -74,27 +74,40 @@
 
                                             <div class="modal-body">
 
-                                                <form action="#">
+                                                <div class="form-group">
+                                                    <label for="serial">Serial No.</label><br>
+                                                    <input type="text" name="serialno" class="form-control" id="serial"  autofocus="">
+                                                </div>
+                                                <br> <br>
+                                                <div class="form-group">
+                                                    <label for="newname">Equipment Name:</label><br>
+                                                    <input type="text" name="itemname" class="form-control" id="newname">
+                                                </div>
+                                                <br> <br>
+                                                <div class="form-group">
+                                                    <label for="itemstate">Item State:</label><br>
+                                                    <select name="itemstate" form="additem">
+                                                        <%
+                                                            for (Item_State IS : Leiss.getLab_list().getItem_states()) {
+                                                                out.println();
+                                                                out.print("<option value='");
+                                                                out.print(IS.showClassName());
+                                                                out.print("'>");
+                                                                out.print(IS.showState());
+                                                                out.print("</option>");
+                                                            }
+                                                        %>
+                                                    </select>
+                                                </div>
+                                                <br> <br>
 
-                                                    <div class="form-group">
-                                                        <label for="serial">Serial No.</label><br>
-                                                        <input type="text" class="form-control" id="serial">
-                                                    </div>
-                                                    <br> <br>
-                                                    <div class="form-group">
-                                                        <label for="newname">Equipment Name:</label><br>
-                                                        <input type="text" class="form-control" id="newname">
-                                                    </div>
-                                                    <br> <br>
-                                                    <div class="form-group">
-                                                        <label for="dateadded">Date Added:</label><br>
-                                                        <input type="date" class="form-control" id="dateadded">
-                                                    </div>
-                                                    <br> <br>
-                                                    <button type="submit" class="btn btn-default pull-right">Submit</button>
+                                                <div class="form-group">
+                                                    <label for="dateadded">*Date added is today</label><br>
+                                                    <!--<input type="date" class="form-control" id="dateadded">-->
+                                                </div>
+                                                <button type="submit" class="btn btn-default pull-right">Submit</button>
 
-                                                    <br><br>
-                                                </form>
+                                                <br><br>
 
                                             </div>
 

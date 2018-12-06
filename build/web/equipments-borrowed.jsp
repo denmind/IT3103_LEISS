@@ -41,7 +41,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
                     <div class="row">
                         <div class="col-lg-12" style="padding: 10px;">
@@ -91,52 +91,52 @@
                                 <!--<button type="button" class="btn btn-default btn-lg transbtn" title='Borrow Equipment' data-toggle="modal" data-target="#borrowEquipment"><span class="glyphicon glyphicon-bold" style='color: whitesmoke;'></span></button>-->
 
                                 <!-- Modal -->
-<!--                                <div id="borrowEquipment" class="modal fade" role="dialog">
-                                    <div class="modal-dialog">
-
-                                         Modal content
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">New Borrowed Equipment</h4>
-                                            </div>
-
-                                            <div class="modal-body">
-
-                                                <form action="#">
-
-                                                    <div class="form-group">
-                                                        <label for="serial">Serial No.</label><br>
-                                                        <input type="text" class="form-control" id="serial">
-                                                    </div>
-                                                    <br> <br>
-                                                    <div class="form-group">
-                                                        <label for="newname">Equipment Name:</label><br>
-                                                        <input type="text" class="form-control" id="newname">
-                                                    </div>
-                                                    <br> <br>
-                                                    <div class="form-group">
-                                                        <label for="dateadded">Date of Borrowing:</label><br>
-                                                        <input type="date" class="form-control" id="dateadded">
-                                                    </div>
-                                                    <br> <br>
-                                                    <div class="form-group">
-                                                        <label for="bname">Borrower's Name:</label><br>
-                                                        <input type="text" class="form-control" id="bname">
-                                                    </div>
-                                                    <br> <br>
-
-                                                    <button type="submit" class="btn btn-default pull-right">Submit</button>
-
-                                                    <br><br>
-                                                </form>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>-->
+                                <!--                                <div id="borrowEquipment" class="modal fade" role="dialog">
+                                                                    <div class="modal-dialog">
+                                
+                                                                         Modal content
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                                <h4 class="modal-title">New Borrowed Equipment</h4>
+                                                                            </div>
+                                
+                                                                            <div class="modal-body">
+                                
+                                                                                <form action="#">
+                                
+                                                                                    <div class="form-group">
+                                                                                        <label for="serial">Serial No.</label><br>
+                                                                                        <input type="text" class="form-control" id="serial">
+                                                                                    </div>
+                                                                                    <br> <br>
+                                                                                    <div class="form-group">
+                                                                                        <label for="newname">Equipment Name:</label><br>
+                                                                                        <input type="text" class="form-control" id="newname">
+                                                                                    </div>
+                                                                                    <br> <br>
+                                                                                    <div class="form-group">
+                                                                                        <label for="dateadded">Date of Borrowing:</label><br>
+                                                                                        <input type="date" class="form-control" id="dateadded">
+                                                                                    </div>
+                                                                                    <br> <br>
+                                                                                    <div class="form-group">
+                                                                                        <label for="bname">Borrower's Name:</label><br>
+                                                                                        <input type="text" class="form-control" id="bname">
+                                                                                    </div>
+                                                                                    <br> <br>
+                                
+                                                                                    <button type="submit" class="btn btn-default pull-right">Submit</button>
+                                
+                                                                                    <br><br>
+                                                                                </form>
+                                
+                                                                            </div>
+                                
+                                                                        </div>
+                                
+                                                                    </div>
+                                                                </div>-->
 
 
                             </form>
@@ -167,7 +167,7 @@
                                                     out.println("<td>" + data_item.getItem_date_added() + "</td>");
                                                     out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_special() + "</td>");
-                                                    out.println("<td><form action='process-borrowed.jsp' method='POST'><input type='hidden' name='process_type' value='normal'><input type='hidden' name='serial_normal' value='"+ data_item.getItem_serial_no() +"'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Returned'><span class='glyphicon glyphicon glyphicon-ok-circle' style='color: whitesmoke;'></span></button></form> <form action='process-borrowed.jsp' method='POST'><input type='hidden' name='process_type' value='damaged'><input type='hidden' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'><input type='hidden' name='student_damaged' value='" + data_item.getItem_stud().getStud_name() + "'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: whitesmoke;'></span></button></form></td>");
+                                                    out.println("<td><form action='process-borrowed.jsp' method='POST'><input type='hidden' name='process_type' value='normal'><input type='hidden' name='serial_normal' value='" + data_item.getItem_serial_no() + "'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Returned'><span class='glyphicon glyphicon glyphicon-ok-circle' style='color: whitesmoke;'></span></button></form> <form action='process-borrowed.jsp' method='POST'><input type='hidden' name='process_type' value='damaged'><input type='hidden' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'><input type='hidden' name='student_damaged' value='" + data_item.getItem_stud().getStud_name() + "'><button type='submit' class='btn btn-success btn-md transbtn' title='Mark as Damaged'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: whitesmoke;'></span></button></form></td>");
                                                     out.println("</tr>");
                                                 }
                                             }

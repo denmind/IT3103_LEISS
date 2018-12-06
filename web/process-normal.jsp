@@ -28,7 +28,7 @@
                     /*CHANGE*/ 
                     String log_name = "Item Borrowed";
                     String stud_name = request.getParameter("name");
-                    String log_description = "Item " + item.getItem_serial_no() + " borrowed by " + stud_name;
+                     String log_description = "[" + item.getItem_serial_no()+ "] Item changed state.";
 
                     /*CHANGE*/
                     item.setItem_state(new Item_Borrowed());
@@ -48,7 +48,7 @@
                     /*CHANGE*/ 
                     String log_name = "Item Damaged";
                      String stud_name = request.getParameter("name");
-                     String log_description = "Item " + item.getItem_serial_no() + " damaged by " + stud_name;
+                     String log_description = "[" + item.getItem_serial_no()+ "] Item changed state.";
 
                     item.setItem_state(new Item_Damaged());
                     item.setItem_stud(new Student(stud_name));
