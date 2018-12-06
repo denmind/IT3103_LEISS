@@ -12,5 +12,4 @@ package model;
 public interface Item_State {
     public void changeState(Item I);
     public String showState();
-    public String showClassName();
 }

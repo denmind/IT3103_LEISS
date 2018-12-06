@@ -25,7 +25,7 @@
                 if (item.getItem_serial_no().equals(SERIAL_FIND_NORM)) {
                     String log_date = new Date().toString();
                     /*CHANGE*/ String log_name = "Borrowed to Normal";
-                    String log_description = "[" + item.getItem_serial_no()+ "] Item changed state.";
+                    String log_description = "Item " + item.getItem_serial_no() + " changed state.";
 
                     item.setItem_state(new Item_Normal());
 
@@ -40,7 +40,7 @@
                 if (item.getItem_serial_no().equals(SERIAL_FIND_DAMAGED)) {
                     String log_date = new Date().toString();
                     /*CHANGE*/ String log_name = "Borrowed to Damaged";
-                    String log_description = "[" + item.getItem_serial_no()+ "] Item changed state.";
+                    String log_description = "Item " + item.getItem_serial_no() + " changed state.";
 
                     item.setItem_state(new Item_Damaged());
 

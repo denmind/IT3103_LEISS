@@ -20,9 +20,4 @@ public class Item_Borrowed implements Item_State {
     public String showState() {
         return "Borrowed";
     }
-    
-    @Override
-    public String showClassName() {
-        return "Item_Borrowed";
-    }
 }

@@ -21,8 +21,5 @@ public class Item_Normal implements Item_State{
         return "Normal";
     }
     
-    @Override
-    public String showClassName() {
-        return "Item_Normal";
-    }
+    
 }

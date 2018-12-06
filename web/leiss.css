@@ -64,13 +64,21 @@
 }
 
 tr{
-    color: #e6e6e6;
+    /*color: #e6e6e6;*/
     font-size: 13px;
 }
 
 th{
-    color: ghostwhite;
+    /*color: ghostwhite;*/
 }
+
+/*select{
+    border-radius: 3px;
+}
+
+input{
+    border-radius: 3px;
+}*/
 
 .dashrow{
     padding: 20px;
@@ -104,4 +112,12 @@ a{
 .modal-body{
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.boldify{
+    font-weight: bold;
+}
+
+.tabletext{
+    color: whitesmoke;
 }

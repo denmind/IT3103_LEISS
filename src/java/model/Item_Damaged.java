@@ -20,9 +20,4 @@ public class Item_Damaged implements Item_State{
     public String showState() {
         return "Damaged";
     }
-    
-    @Override
-    public String showClassName() {
-        return "Item_Damaged";
-    }
 }

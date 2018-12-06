@@ -5,6 +5,9 @@
         <group name="Transition Semester Importan">
             <file>file:/C:/Users/pc-user/Documents/NetBeansProjects/IT3103_LEISS/web/equipments-borrowed.jsp</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/equipments-all.jsp</file>
+            <file>file:/C:/Users/User/Documents/GitHub/IT3103_LEISS/web/process-add.jsp</file>
+        </group>
     </open-files>
 </project-private>
