@@ -13,15 +13,26 @@ public class UserCredentials {
 
     private String username;
     private String password;
+    private String userClipboard;
 
     public UserCredentials() {
         this.username = "";
         this.password = "";
+        this.userClipboard = "";
     }
 
     public UserCredentials(String username, String password) {
         this.username = username;
         this.password = password;
+        this.userClipboard = "";
+    }
+
+    public String getUserClipboard() {
+        return userClipboard;
+    }
+
+    public void setUserClipboard(String userClipboard) {
+        this.userClipboard = userClipboard;
     }
 
     public String getUsername() {
@@ -41,10 +52,10 @@ public class UserCredentials {
     }
 
     public void settleUC() {
-        if (username == null || username == "") {
+        if (username == null || "".equals(username)) {
             username = "Student";
         }
-        if (password == null || password == "") {
+        if (password == null || "".equals(password)) {
             password = "Student";
         }
     }

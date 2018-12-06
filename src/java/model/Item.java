@@ -16,7 +16,6 @@ public class Item {
     private String item_date_added;
     private Item_State item_state;
 
-   
     private Student item_stud; // Student  who borrowed/damaged the Equipment
     private String item_date_special; //Date when it was borrowed/damaged
 
@@ -32,9 +31,14 @@ public class Item {
         this.item_serial_no = item_serial_no;
         this.item_name = item_name;
         this.item_date_added = item_date_added;
-        this.item_stud = null;
+        this.item_stud = new Student("None");
         this.item_date_special = "";
         this.item_state = new Item_Normal();
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "item_serial_no=" + item_serial_no + ", item_name=" + item_name + ", item_date_added=" + item_date_added + ", item_state=" + item_state + ", item_stud=" + item_stud + ", item_date_special=" + item_date_special + '}';
     }
 
     public String getItem_serial_no() {
@@ -77,4 +81,7 @@ public class Item {
         this.item_stud = item_stud;
     }
 
+    public boolean serialAndNameIsEmpty() {
+        return (item_serial_no.equals("") || item_name.equals(""));
+    }
 }

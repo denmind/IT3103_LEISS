@@ -4,10 +4,10 @@
     Author     : User
 --%>
 
-
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.*"%>
+<%@page import="java.text.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,23 +17,26 @@
     </head>
     <body>
         <%
+            //out.println(I.toString());
             Laboratory Leiss = Laboratory.getInstance();
 
+            String DEF_ITEM_STATE = "Normal";
+
+            DateFormat DF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String item_serial_no = request.getParameter("serialno");
             String item_name = request.getParameter("itemname");
             String item_state = request.getParameter("itemstate");
-            String item_date_added = new Date().toString();
+            String item_date_added = DF.format(new Date());
 
             Item I = new Item(item_serial_no, item_name, item_date_added);
 
             if (I.serialAndNameIsEmpty() == false) {
-                int iter = 0;
 
                 for (Item_State IS : Leiss.getLab_list().getItem_states()) {
                     if (item_state.equals(IS.showClassName())) {
-                        I.setItem_state(IS);
+                        I.setItem_state(Leiss.getItemStateFactory().giveItem_State(Leiss.getLab_list(), IS.showState()));
 
-                        if (iter != 0) {
+                        if (DEF_ITEM_STATE != IS.showState()) {
                             I.setItem_date_special(item_date_added);
                         }
 
@@ -46,9 +49,9 @@
 
                         break;
                     }
-                    iter++;
                 }
 
+                /*Add item to Laboratory List*/
                 Leiss.getLab_list().getLab_items().add(I);
             }
 

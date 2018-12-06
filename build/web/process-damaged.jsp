@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="java.util.Date"%>
+<%@page import="java.text.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.*"%>
 <!DOCTYPE html>
@@ -13,24 +14,31 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Processing...</title>
         <meta charset="UTF-8">
-    </head
-    <%
-        Laboratory Leiss = Laboratory.getInstance();
+    </head>
+    <body>
+        <%
+            Laboratory Leiss = Laboratory.getInstance();
 
-        String SERIAL_FIND_DMG = request.getParameter("serial_damaged");
+            String SERIAL_FIND_DMG = request.getParameter("serial_damaged");
+            String PROCESS = request.getParameter("process_type");
+            DateFormat DF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        for (Item item : Leiss.getLab_list().getLab_items()) {
-            if (item.getItem_serial_no().equals(SERIAL_FIND_DMG)) {
-                String log_date = new Date().toString();
-                String log_name = "Damaged to Normal";
-                String log_description = "[" + item.getItem_serial_no()+ "] Item changed state.";
+            if (PROCESS.equals("normal")) {
+                for (Item item : Leiss.getLab_list().getLab_items()) {
+                    if (item.getItem_serial_no().equals(SERIAL_FIND_DMG)) {
 
-                item.setItem_state(new Item_Normal());
+                        String log_date = DF.format(new Date());
+                        String log_name = "Item repaired.";
+                        String log_description = "Item " + item.getItem_serial_no() + " repaired.";
 
-                Leiss.getLab_log().add(new Log(log_date, log_name, log_description));
+                        item.setItem_state(Leiss.getItemStateFactory().giveItem_State(Leiss.getLab_list(), "Normal"));
+
+                        Leiss.getLab_log().add(new Log(log_date, log_name, log_description));
+                    }
+                }
             }
-        }
 
-        response.sendRedirect("equipments-damaged.jsp");
-    %>
+            response.sendRedirect("equipments-damaged.jsp");
+        %>
+    </body>
 </html>

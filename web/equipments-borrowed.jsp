@@ -126,7 +126,7 @@
 
                                                                                 + "<div class='modal-body'>"
                                                                                     + "<form action='process-borrowed.jsp' method='POST'>"//FORM HERE
-                                                                                        + "<input type='hidden' class='form-control' name='serial_normal' value='" + data_item.getItem_serial_no() +" '>" 
+                                                                                        + "<input type='hidden' class='form-control' name='serial_normal' value='" + data_item.getItem_serial_no() +"'>" 
                                                                                         + "<input type='hidden' name='process_type' value='normal'>"
                                                                                             + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
                                                                                             + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"
@@ -150,7 +150,8 @@
 
                                                                                 + "<div class='modal-body'>"
                                                                                     + "<form action='process-borrowed.jsp' method='POST'>"//FORM HERE
-                                                                                        + "<input type='hidden' class='form-control' name='serial_damaged' value='" + data_item.getItem_serial_no() +" '>" 
+                                                                                        + "<input type='hidden' class='form-control' name='serial_damaged' value='"+ data_item.getItem_serial_no() +"'>" 
+                                                                                        + "<input type='hidden' class='form-control' name='person_name' value='"+ data_item.getItem_stud().getStud_name() +"'>" 
                                                                                         + "<input type='hidden' name='process_type' value='damaged'>"
                                                                                             + "<span class='boldify'>Student's Name</span>: " + data_item.getItem_stud().getStud_name() + "<br>"
                                                                                             + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"

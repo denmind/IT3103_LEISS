@@ -126,7 +126,7 @@
 
                                                                             + "<div class='modal-body'>"
                                                                                 + "<form action='process-damaged.jsp' method='POST'>"//FORM HERE
-                                                                                    + "<input type='hidden' class='form-control' name='serial_damaged' value='" + data_item.getItem_serial_no() +" '>" 
+                                                                                    + "<input type='hidden' class='form-control' name='serial_damaged' value='" + data_item.getItem_serial_no() +"'>" 
                                                                                     + "<input type='hidden' name='process_type' value='normal'>"
                                                                                         + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
                                                                                         + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"

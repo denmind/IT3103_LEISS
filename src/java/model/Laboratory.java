@@ -26,6 +26,7 @@ public class Laboratory {
     private UserCredentials lab_uc;
 
     private static Laboratory instance;
+    private Item_State_Factory ItemStateFactory;
 
     public Laboratory() {
         this.lab_list = new List();
@@ -35,8 +36,10 @@ public class Laboratory {
         this.lab_id = def_lab_id;
         this.lab_name = def_lab_name;
         this.lab_in_charge = def_lab_in_charge;
-
-        populate_Log();
+        this.ItemStateFactory = new Item_State_Factory();
+        
+        Laboratory.instance = this;
+        
         populate_Item();
     }
 
@@ -48,9 +51,18 @@ public class Laboratory {
         this.lab_log = new ArrayList<>();
         this.lab_uc = new UserCredentials(username, password);
         Laboratory.instance = this;
+        
+        this.ItemStateFactory = new Item_State_Factory();
 
-        populate_Log();
         populate_Item();
+    }
+
+    public Item_State_Factory getItemStateFactory() {
+        return ItemStateFactory;
+    }
+
+    public void setItemStateFactory(Item_State_Factory ItemStateFactory) {
+        this.ItemStateFactory = ItemStateFactory;
     }
 
     public int getLab_id() {

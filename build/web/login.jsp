@@ -8,6 +8,8 @@
         <title>Log</title>
         <meta charset="UTF-8">
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
+        <link rel="stylesheet" href="DataTables/datatables.css" >
+        <link rel="stylesheet" href="DataTables/datatables.min.css" >
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf'>
         <link rel='stylesheet' href='leiss.css'>
     </head>
@@ -48,12 +50,6 @@
 
                         <div class='col-lg-8' style="background-color: #131419; height: 60px;"></div>
                         <div class='col-lg-3' style="background-color: #131419; height: 60px; text-align: right; padding-right: 0px;">
-                            <form class="navbar-form">
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  id='searchbar' placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default btn-lg transbtn" title='Search'><span class="glyphicon glyphicon-search" aria-hidden="true" style='color: whitesmoke;'></span></button>
-                            </form>
 
                         </div>
                         <div class='col-lg-1' style="background-color: #131419; height: 60px; text-align: left; padding-left: 0px;">
@@ -67,13 +63,16 @@
                         <div class='col-lg-12 equip'>
                             <div class="panel panel-danger">
                                 <div class="panel-heading">Log</div>
-                                <div class="panel-body panelbodyequip">
-                                    <table class='table'>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Name</th>
-                                            <th>Log Description</th>
-                                        </tr>
+                                <div class="panel-body">
+                                    <table class='table table-striped table-hover' style="width:100%" id='displayTable'>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Name</th>
+                                                <th>Log Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                         <!-- DATA HERE -->
                                         <%
                                             for (Log data_Log : Leiss.getLab_log()) {
@@ -84,6 +83,10 @@
                                                 out.println("</tr>");
                                             }
                                         %>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr></tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -99,5 +102,12 @@
 
 <script src="bootstrap-3.3.7-dist/jquery-3.3.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="DataTables/datatables.min.js"></script>
+
 <script>
+    $(document).ready(function () {
+        
+        $('#displayTable').DataTable();
+
+    });
 </script>

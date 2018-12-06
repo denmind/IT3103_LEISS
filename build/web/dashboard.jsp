@@ -8,7 +8,8 @@
         <title>Dashboard</title>
         <meta charset="UTF-8">
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/css/bootstrap.css'>
-        <link rel="stylesheet" href="DataTables/datatables.css" >
+        <!--<link rel="stylesheet" href="DataTables/datatables.css" >-->
+        <!--<link rel="stylesheet" href="DataTables/datatables.min.css" >-->
         <link rel='stylesheet' href='bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf'>
         <link rel='stylesheet' href='leiss.css'>
     </head>
@@ -51,7 +52,7 @@
                             <div class="panel panel-success">
                                 <div class="panel-heading">Normal Equipment</div>
                                 <div class="panel-body panelbodydash">
-                                    <table class='table' id='displayTable'>
+                                    <table class='table tabletext' id='displayTable'>
                                         <tr>
                                             <th>Serial No.</th>
                                             <th>Name</th>
@@ -77,7 +78,7 @@
                             <div class="panel panel-info">
                                 <div class="panel-heading">Borrowed Equipment</div>
                                 <div class="panel-body panelbodydash">
-                                    <table class='table' id='displayTable'>
+                                    <table class='table tabletext' id='displayTable'>
                                         <tr>
                                             <th>Serial No.</th>
                                             <th>Name</th>
@@ -105,7 +106,7 @@
                             <div class="panel panel-warning">
                                 <div class="panel-heading">Damaged Equipment</div>
                                 <div class="panel-body panelbodydash">
-                                    <table class='table' id='displayTable'>
+                                    <table class='table tabletext' id='displayTable'>
                                         <tr>
                                             <th>Serial No.</th>
                                             <th>Name</th>
@@ -138,8 +139,7 @@
 
 <script src="bootstrap-3.3.7-dist/jquery-3.3.1.min.js"></script>
 <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
-<!--<script src="DataTables/datatables.js"></script>-->
+<script src="DataTables/datatables.js"></script>
 
 <script>
 $(document).ready(function () {

@@ -111,6 +111,7 @@
                                                     out.println("<td>" + data_item.getItem_date_added() + "</td>");
                                                     out.println("<td><button type='button' class='btn btn-success btn-sm transbtn' title='Borrow Item' data-toggle='modal' data-target='#borrowEquipment'><span class='glyphicon glyphicon glyphicon-bold' style='color: black;'></span></button><button type='button' class='btn btn-danger btn-sm transbtn' title='Mark as Damaged' data-toggle='modal' data-target='#damageEquipment'><span class='glyphicon glyphicon-ban-circle' style='color: black;'></span></button></td>"
 //                                                            
+                                                            /**BORROW FORM**/
                                                                 + "<div id='borrowEquipment' class='modal fade' role='dialog'>"
                                                                     + "<div class='modal-dialog'> "
                                                                         + "<div class='modal-content'>"
@@ -122,7 +123,7 @@
                                                                                     
                                                                             + "<div class='modal-body'>"
                                                                                 + "<form>"//FORM HERE
-                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' value='" + data_item.getItem_serial_no() +" '>" 
+                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' value='" + data_item.getItem_serial_no() +"'>" 
                                                                                     + "<input type='hidden' name='process_type' value='borrowed'>"
                                                                                         + "<div class='form-group'>"
                                                                                         + "<label for='bname' style='color: black;'>Borrower's Name:</label><br>"
@@ -136,7 +137,8 @@
                                                                         + "</div>"
                                                                     + "</div>"
                                                                 + "</div>"
-                                                                                            
+                                                                          
+                                                            /**BORROW FORM MODAL**/
                                                                 + "<div id='borrowEConfirm' class='modal fade' role='dialog'>"
                                                                     + "<div class='modal-dialog'> "
                                                                         + "<div class='modal-content'>"
@@ -148,7 +150,7 @@
                                                                                     
                                                                             + "<div class='modal-body'>"
                                                                                 + "<form action='process-normal.jsp' method='POST'>"//FORM HERE
-                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' value='" + data_item.getItem_serial_no() +" '>" 
+                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' value='" + data_item.getItem_serial_no() +"'>" 
                                                                                     + "<input type='hidden' name='process_type' value='borrowed'>"
                                                                                         + "<span class='boldify'>Borrower's Name</span>: <span id='bName'>  </span><br>"
                                                                                         + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
@@ -163,6 +165,7 @@
                                                                     + "</div>"
                                                                 + "</div>"
 //                                                           
+                                                             /**DAMAGED FORM**/
                                                             + "<div id='damageEquipment' class='modal fade' role='dialog'>"
                                                                 + "<div class='modal-dialog'> "
                                                                     + "<div class='modal-content'>"
@@ -173,7 +176,7 @@
                                                                                     
                                                                         + "<div class='modal-body'>"
                                                                             + "<form>"//FORM HERE
-                                                                                + "<input type='hidden' class='form-control' name='serial_damaged' value=' " + data_item.getItem_serial_no() + " '>" 
+                                                                                + "<input type='hidden' class='form-control' name='serial_damaged' value=' " + data_item.getItem_serial_no() + "'>" 
                                                                                 + "<input type='hidden' name='process_type' value='damaged'>"
                                                                                     + "<div class='form-group'>"
                                                                                     + "<label for='dname' style='color: black;'>Person's Name:</label><br>"
@@ -188,6 +191,7 @@
                                                                 + "</div>"
                                                             + "</div>"
                                                             
+                                                            /**DAMAGED FORM MODAL**/
                                                             + "<div id='damageEConfirm' class='modal fade' role='dialog'>"
                                                                 + "<div class='modal-dialog'> "
                                                                     + "<div class='modal-content'>"
@@ -197,7 +201,7 @@
                                                                         + "</div>"
                                                                         + "<div class='modal-body'>"
                                                                             + "<form action='process-normal.jsp' method='POST'>"//FORM HERE
-                                                                            + "<input type='hidden' class='form-control' name='serial_damaged' value=' " + data_item.getItem_serial_no() + " '>" 
+                                                                                + "<input type='hidden' class='form-control' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'>" 
                                                                             + "<input type='hidden' name='process_type' value='damaged'>"
                                                                                     + "<span class='boldify'>Student's Name</span>: <span id='dName'>  </span><br>"
                                                                                     + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
