@@ -118,12 +118,11 @@
                                                             
                                                                             + "<div class='modal-header'>"
                                                                             + "<button type='button' class='close' data-dismiss='modal'>&times;</button>"
-                                                                            + "<h4 class='modal-title' style='color: black;'>" + data_item.getItem_serial_no() + "\t" + data_item.getItem_name() + "</h4>"
+                                                                            + "<h4 class='modal-title' style='color: black;'>New Borrow Equipment</h4>"
                                                                             + "</div>"
                                                                                     
                                                                             + "<div class='modal-body'>"
                                                                                 + "<form>"//FORM HERE
-                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' value='" + data_item.getItem_serial_no() +"'>" 
                                                                                     + "<input type='hidden' name='process_type' value='borrowed'>"
                                                                                         + "<div class='form-group'>"
                                                                                         + "<label for='bname' style='color: black;'>Borrower's Name:</label><br>"
@@ -150,11 +149,11 @@
                                                                                     
                                                                             + "<div class='modal-body'>"
                                                                                 + "<form action='process-normal.jsp' method='POST'>"//FORM HERE
-                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' value='" + data_item.getItem_serial_no() +"'>" 
+                                                                                    + "<input type='hidden' class='form-control' name='serial_borrow' id='bserial' value=''>" 
                                                                                     + "<input type='hidden' name='process_type' value='borrowed'>"
-                                                                                        + "<span class='boldify'>Borrower's Name</span>: <span id='bName'>  </span><br>"
-                                                                                        + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
-                                                                                        + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"
+                                                                                        + "<span class='boldify'>Borrower's Name</span>: <span id='bName'></span><br>"
+                                                                                        + "<span class='boldify'>Equipment Serial</span>: <span id='bSerialText'></span><br>"
+                                                                                        + "<span class='boldify'>Equipment Name</span>: <span id='bNameText'></span><br>"
                                                                                         + "<input type='hidden' value='' id='bNameHidden' name='borrow_name'><br>"
                                                                                     + "<button type='submit' class='btn btn-success pull-right'>Yes</button>"
                                                                                     + "<br><br>"
@@ -171,12 +170,11 @@
                                                                     + "<div class='modal-content'>"
                                                                         + "<div class='modal-header'>"
                                                                             + "<button type='button' class='close' data-dismiss='modal'>&times;</button>"
-                                                                            + "<h4 class='modal-title' style='color: black;'>" + data_item.getItem_serial_no() + "\t" + data_item.getItem_name() + "</h4>"
+                                                                            + "<h4 class='modal-title' style='color: black;'>Mark as Damaged Equipment</h4>"
                                                                         + "</div>"
                                                                                     
                                                                         + "<div class='modal-body'>"
                                                                             + "<form>"//FORM HERE
-                                                                                + "<input type='hidden' class='form-control' name='serial_damaged' value=' " + data_item.getItem_serial_no() + "'>" 
                                                                                 + "<input type='hidden' name='process_type' value='damaged'>"
                                                                                     + "<div class='form-group'>"
                                                                                     + "<label for='dname' style='color: black;'>Person's Name:</label><br>"
@@ -201,12 +199,12 @@
                                                                         + "</div>"
                                                                         + "<div class='modal-body'>"
                                                                             + "<form action='process-normal.jsp' method='POST'>"//FORM HERE
-                                                                                + "<input type='hidden' class='form-control' name='serial_damaged' value='" + data_item.getItem_serial_no() + "'>" 
-                                                                            + "<input type='hidden' name='process_type' value='damaged'>"
-                                                                                    + "<span class='boldify'>Student's Name</span>: <span id='dName'>  </span><br>"
-                                                                                    + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
-                                                                                    + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"
-                                                                                    + "<input type='hidden' value='' id='dNameHidden' name='damaged_name'><br>"                                                                     
+                                                                                + "<input type='hidden' class='form-control' name='serial_damaged' id='dserial'>"
+                                                                                + "<input type='hidden' name='process_type' value='damaged'>"
+                                                                                        + "<span class='boldify'>Student's Name</span>: <span id='dName'>  </span><br>"
+                                                                                        + "<span class='boldify'>Equipment Serial</span>: <span id='dSerialText'></span><br>"
+                                                                                        + "<span class='boldify'>Equipment Name</span>: <span id='dNameText'></span><br>"
+                                                                                + "<input type='hidden' value='' id='dNameHidden' name='damaged_name'><br>"                                                                     
                                                                             + "<button type='submit' class='btn btn-default pull-right'>Yes</button>"
                                                                             + "<br><br>"
                                                                             + "</form>"
@@ -249,22 +247,51 @@
         
         $('#displayTable').DataTable();
         
-        $('#fromBorrow').click(function(){
-            var bname = $('#borrowName').val();
-            $('#bName').text(bname);
-            $('#bNameHidden').val(bname);
-            
-//            console.log(bname);
-        });
+        var table = $('#displayTable').DataTable();
         
-        $('#fromDamage').click(function(){
-            var dname = $('#damagedName').val();
-            $('#dName').text(dname);
-            $('#dNameHidden').val(dname);
+        $('#displayTable tbody').on( 'click', 'button', function () {
+            var data = table.row( $(this).parents('tr') ).data();
+//            console.log(data[0]);
             
-//            console.log(dname);
-        });
+            var serialSelected = data[0];
+            var nameSelected = data[1];
+            
+            $('#bserial').val(serialSelected);
+            $('#dserial').val(serialSelected);
+            
+                $('#fromBorrow').click(function(){
+                    
+                    //OF STUDENT
+                    var bname = $('#borrowName').val();
+                    $('#bName').text(bname);
+                    $('#bNameHidden').val(bname);
+
+                    //OF EQUIPMENT
+                    $('#bSerialText').text(serialSelected);
+                    $('#bNameText').text(nameSelected);
+                    
+//                    console.log(bname);
+//                    console.log($('#bserial').val());
+                });
         
+                $('#fromDamage').click(function(){
+                    
+                    //OF STUDENT
+                    var dname = $('#damagedName').val();
+                    $('#dName').text(dname);
+                    $('#dNameHidden').val(dname);
+                    
+                    //OF EQUIPMENT
+                    $('#dSerialText').text(serialSelected);
+                    $('#dNameText').text(nameSelected);
+
+//                    console.log(dname);
+//                    console.log($('#dserial').val());
+                });
+            
+        });
         
     });
+                  
+    
 </script>

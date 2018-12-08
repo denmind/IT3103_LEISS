@@ -112,8 +112,8 @@
                                                     out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_special() + "</td>");
                                                     out.println("<td>"
-                                                                    + "<button type='button' class='btn btn-success btn-sm transbtn' title='Mark as Normal' data-toggle='modal' data-target='#normalConfirmation'><span class='glyphicon glyphicon glyphicon-record' style='color: black;'></span></button>"
-                                                                    + "<button type='button' class='btn btn-danger btn-sm transbtn' title='Mark as Damaged' data-toggle='modal' data-target='#damagedConfirmation'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: black;'></span></button>"
+                                                                    + "<button type='button' class='btn btn-success btn-sm transbtn subButt' title='Mark as Normal' data-toggle='modal' data-target='#normalConfirmation'><span class='glyphicon glyphicon glyphicon-record' style='color: black;'></span></button>"
+                                                                    + "<button type='button' class='btn btn-danger btn-sm transbtn subButt' title='Mark as Damaged' data-toggle='modal' data-target='#damagedConfirmation'><span class='glyphicon glyphicon glyphicon-ban-circle' style='color: black;'></span></button>"
                                                                         
                                                                         + "<div id='normalConfirmation' class='modal fade' role='dialog'>"
                                                                         + "<div class='modal-dialog'> "
@@ -126,10 +126,10 @@
 
                                                                                 + "<div class='modal-body'>"
                                                                                     + "<form action='process-borrowed.jsp' method='POST'>"//FORM HERE
-                                                                                        + "<input type='hidden' class='form-control' name='serial_normal' value='" + data_item.getItem_serial_no() +"'>" 
+                                                                                        + "<input type='hidden' class='form-control bdserial' name='serial_normal'>" 
                                                                                         + "<input type='hidden' name='process_type' value='normal'>"
-                                                                                            + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
-                                                                                            + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"
+                                                                                            + "<span class='boldify'>Equipment Serial</span>: <span class='serialT'></span><br>"
+                                                                                            + "<span class='boldify'>Equipment Name</span>: <span class='nameT'></span><br>"
                                                                                         + "<button type='submit' class='btn btn-success pull-right'>Yes</button>"
                                                                                         + "<br><br>"
                                                                                     + "</form>"
@@ -150,12 +150,12 @@
 
                                                                                 + "<div class='modal-body'>"
                                                                                     + "<form action='process-borrowed.jsp' method='POST'>"//FORM HERE
-                                                                                        + "<input type='hidden' class='form-control' name='serial_damaged' value='"+ data_item.getItem_serial_no() +"'>" 
-                                                                                        + "<input type='hidden' class='form-control' name='person_name' value='"+ data_item.getItem_stud().getStud_name() +"'>" 
+                                                                                        + "<input type='hidden' class='form-control bdserial' name='serial_damaged'>" 
+                                                                                        + "<input type='hidden' class='form-control' name='person_name' id='pname'>" 
                                                                                         + "<input type='hidden' name='process_type' value='damaged'>"
-                                                                                            + "<span class='boldify'>Student's Name</span>: " + data_item.getItem_stud().getStud_name() + "<br>"
-                                                                                            + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
-                                                                                            + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"
+                                                                                            + "<span class='boldify'>Student's Name</span>: <span id='pnameT'></span><br>"
+                                                                                            + "<span class='boldify'>Equipment Serial</span>: <span class='serialT'></span><br>"
+                                                                                            + "<span class='boldify'>Equipment Name</span>: <span class='nameT'></span><br>"
                                                                                         + "<button type='submit' class='btn btn-success pull-right'>Yes</button>"
                                                                                         + "<br><br>"
                                                                                     + "</form>"
@@ -197,5 +197,34 @@
 <script>
     $(document).ready(function () {
         $('#displayTable').DataTable();
+        
+        var table = $('#displayTable').DataTable();
+        
+        $('#displayTable tbody').on( 'click', '.subButt', function () {
+            
+            var data = table.row( $(this).parents('tr') ).data();
+            
+//            console.log(data[0]);
+            
+            var serialSelected = data[0];
+            var nameSelected = data[1];
+            var studNameSelected = data[3];
+            
+//            console.log(serialSelected);
+//            console.log(nameSelected);
+//            console.log(studNameSelected);
+            
+            $('.bdserial').val(serialSelected);
+
+                //OF STUDENT
+                $('#pname').val(studNameSelected);
+                $('#pnameT').text(studNameSelected);
+
+                //OF EQUIPMENT
+                $('.serialT').text(serialSelected);
+                $('.nameT').text(nameSelected);
+                
+        });
+        
     });
 </script>

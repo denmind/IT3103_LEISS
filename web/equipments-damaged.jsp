@@ -113,7 +113,7 @@
                                                     out.println("<td>" + data_item.getItem_stud().getStud_name() + "</td>");
                                                     out.println("<td>" + data_item.getItem_date_special() + "</td>");
                                                     out.println("<td>"
-                                                                    + "<button type='button' class='btn btn-success btn-sm transbtn' title='Mark as Fixed' data-toggle='modal' data-target='#normalConfirmation'><span class='glyphicon glyphicon glyphicon-record' style='color: black;'></span></button>"
+                                                                    + "<button type='button' class='btn btn-success btn-sm transbtn subButt' title='Mark as Fixed' data-toggle='modal' data-target='#normalConfirmation'><span class='glyphicon glyphicon glyphicon-record' style='color: black;'></span></button>"
 
                                                                     + "<div id='normalConfirmation' class='modal fade' role='dialog'>"
                                                                     + "<div class='modal-dialog'> "
@@ -126,12 +126,13 @@
 
                                                                             + "<div class='modal-body'>"
                                                                                 + "<form action='process-damaged.jsp' method='POST'>"//FORM HERE
-                                                                                    + "<input type='hidden' class='form-control' name='serial_damaged' value='" + data_item.getItem_serial_no() +"'>" 
+                                                                                    + "<input type='hidden' class='form-control' name='serial_damaged' id='dserial'>" 
                                                                                     + "<input type='hidden' name='process_type' value='normal'>"
-                                                                                        + "<span class='boldify'>Equipment Serial</span>: " + data_item.getItem_serial_no() + "<br>"
-                                                                                        + "<span class='boldify'>Equipment Name</span>: " + data_item.getItem_name() + "<br>"
-                                                                                    + "<button type='submit' class='btn btn-success pull-right'>Yes</button>"
-                                                                                    + "<br><br>"
+                                                                                        + "<span class='boldify'>Student's Name</span>: <span id='dName'></span><br>"
+                                                                                        + "<span class='boldify'>Equipment Serial</span>: <span id='dSerialT'></span><br>"
+                                                                                        + "<span class='boldify'>Equipment Name</span>: <span id='dNameT'></span><br>"  
+                                                                                + "<button type='submit' class='btn btn-success pull-right'>Yes</button>"
+                                                                                + "<br><br>"
                                                                                 + "</form>"
                                                                             + "</div>"
 
@@ -167,5 +168,36 @@
 <script>
     $(document).ready(function () {
         $('#displayTable').DataTable();
+        
+        var table = $('#displayTable').DataTable();
+        
+        $('#displayTable tbody').on( 'click', '.subButt', function () {
+            
+            var data = table.row( $(this).parents('tr') ).data();
+            
+//            console.log(data[0]);
+            
+            var serialSelected = data[0];
+            var nameSelected = data[1];
+            var studNameSelected = data[3];
+            
+//            console.log(serialSelected);
+//            console.log(studNameSelected);
+            
+            $('#dserial').val(serialSelected);
+            
+                //OF STUDENT
+                var dname = studNameSelected;
+                $('#dName').text(dname);
+
+                //OF EQUIPMENT
+                $('#dSerialT').text(serialSelected);
+                $('#dNameT').text(nameSelected);
+
+                $('#dserial').val(serialSelected);
+
+        });
+        
+        
     });
 </script>
