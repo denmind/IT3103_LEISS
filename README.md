@@ -1,5 +1,5 @@
-UML : https://goo.gl/aueEic
+Course: IT 3103
 
-DESCRIPTION : https://goo.gl/N8z41q
+Title: LEISS (Laboratory Equipment Inventory Management System)
 
-If there are any changes, the UML and DESCRIPTION files would likely not be updated. Follow source code.
+Description: Manage dispensing of items in a scientific laboratory. Can indicate if any item is in stored, broken, or in a borrowed state. Includes item parts (smaller items) that can be used for fixing repairable items. Records name of any person involved (student or faculty) in the item dispensary process and their actions performed.
